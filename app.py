@@ -16,7 +16,6 @@ def create_app():
         db.session.remove()
 
     with app.app_context():
-        from models import Client, ClientParking, Parking
 
         db.create_all()
 

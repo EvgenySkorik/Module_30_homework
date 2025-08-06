@@ -2,7 +2,6 @@ from datetime import datetime
 
 from sqlalchemy import ForeignKey, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from sqlalchemy.sql.ddl import CreateTable
 
 from database import Base, db
 
@@ -55,8 +54,3 @@ class ClientParking(Base):
     __table_args__ = (
         db.UniqueConstraint("client_id", "parking_id", name="unique_client_parking"),
     )
-
-
-# print(str(CreateTable(Client.__table__)))
-# print(str(CreateTable(Parking.__table__)))
-# print(str(CreateTable(ClientParking.__table__)))

@@ -18,6 +18,5 @@ logging.basicConfig(
 
 def get_logger(name=None):
     """Возвращает настроенный логгер"""
-    logger = logging.getLogger(name or __name__)
 
-    return logger
+    return logging.getLogger(name or __name__)
