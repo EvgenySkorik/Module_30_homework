@@ -1,6 +1,7 @@
-import pytest
-import sys
 import os
+import sys
+
+import pytest
 
 hw_path = os.path.dirname(os.path.dirname(__file__))
 sys.path.insert(0, hw_path)

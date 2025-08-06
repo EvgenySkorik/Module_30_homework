@@ -1,4 +1,5 @@
-from flask_openapi3 import OpenAPI, Info
+from flask_openapi3 import Info, OpenAPI
+
 from database import db
 
 
@@ -15,11 +16,11 @@ def create_app():
         db.session.remove()
 
     with app.app_context():
-        from models import Client, Parking, ClientParking
+        from models import Client, ClientParking, Parking
 
         db.create_all()
 
-    from routes import clients_bp, parkings_bp, index_bp, cp_bp
+    from routes import clients_bp, cp_bp, index_bp, parkings_bp
 
     app.register_api(index_bp)
     app.register_api(clients_bp)
