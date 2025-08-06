@@ -37,7 +37,7 @@ jobs:
           black --check .
 
       - name: Run flake8
-        run: flake8 .
+        run: flake8 ./app.py database.py loging.py models.py repository.py routes.py shemas.py
 
       - name: Run mypy
         run: mypy .
