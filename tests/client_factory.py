@@ -30,7 +30,7 @@ class ParkingFactory(factory.alchemy.SQLAlchemyModelFactory):
 
     address = factory.Faker("address")
     opened = factory.Faker("boolean")
-    count_places = factory.Faker('random_int', min=5, max=50)
+    count_places = factory.Faker("random_int", min=5, max=50)
     count_available_places = factory.LazyAttribute(
         lambda o: o.count_places if o.opened else 0
     )

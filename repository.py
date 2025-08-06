@@ -13,10 +13,14 @@ class ClientRepository:
     @classmethod
     def check_client(cls, data_client: ClientShema) -> bool:
         """Проверка наличия клиента в базе"""
-        return db.session.query(Client).filter(
-            Client.name == data_client.name,
-            Client.surname == data_client.surname
-        ).first() is not None
+        return (
+            db.session.query(Client)
+            .filter(
+                Client.name == data_client.name, Client.surname == data_client.surname
+            )
+            .first()
+            is not None
+        )
 
     @classmethod
     def add_client_db(cls, data_client: ClientShema) -> ClientShemaOUT:
@@ -60,9 +64,14 @@ class ParkingRepository:
     @classmethod
     def check_parking(cls, data_client: ParkingShema) -> bool:
         """Проверка наличия парковочной зоны в базе"""
-        return db.session.query(Parking).filter(
-            Parking.address == data_client.address,
-        ).first() is not None
+        return (
+            db.session.query(Parking)
+            .filter(
+                Parking.address == data_client.address,
+            )
+            .first()
+            is not None
+        )
 
     @classmethod
     def add_parking_db(cls, data_parking: ParkingShema) -> ParkingShemaOUT:
@@ -81,18 +90,25 @@ class ParkingRepository:
 class CPRepository:
     @classmethod
     def client_in_to_parking_db(cls, cp_data: CPShema):
-
-        parking: Parking = db.session.query(Parking).filter(Parking.id == cp_data.parking_id).one_or_none()
+        parking: Parking = (
+            db.session.query(Parking)
+            .filter(Parking.id == cp_data.parking_id)
+            .one_or_none()
+        )
         if not parking:
             raise ValueError("Парковки не существует")
         if not parking.opened:
             raise ValueError("Парковка закрыта, мест нет")
 
-        check_unic = db.session.query(ClientParking).filter(
-            ClientParking.client_id == cp_data.client_id,
-            ClientParking.parking_id == cp_data.parking_id,
-            ClientParking.time_out.is_(None)
-        ).first()
+        check_unic = (
+            db.session.query(ClientParking)
+            .filter(
+                ClientParking.client_id == cp_data.client_id,
+                ClientParking.parking_id == cp_data.parking_id,
+                ClientParking.time_out.is_(None),
+            )
+            .first()
+        )
 
         if check_unic:
             raise ValueError("Клиент уже на парковке")
@@ -100,7 +116,7 @@ class CPRepository:
         cp = ClientParking(
             client_id=cp_data.client_id,
             parking_id=cp_data.parking_id,
-            time_in=datetime.now()
+            time_in=datetime.now(),
         )
 
         parking.count_available_places -= 1
@@ -119,14 +135,17 @@ class CPRepository:
         Обновляем запись при выезде из парковки в БД,
         Проверка кредитной карты у клиента, МОЖЕМ ВСТАВИТЬ ЛОГИКУ ОПЛАТЫ
         """
-        cp = (db.session.query(ClientParking, Parking, Client)
-              .join(Parking)
-              .join(Client)
-              .filter(
-            ClientParking.client_id == cp_data.client_id,
-            ClientParking.parking_id == cp_data.parking_id,
-            ClientParking.time_out.is_(None)
-        ).first())
+        cp = (
+            db.session.query(ClientParking, Parking, Client)
+            .join(Parking)
+            .join(Client)
+            .filter(
+                ClientParking.client_id == cp_data.client_id,
+                ClientParking.parking_id == cp_data.parking_id,
+                ClientParking.time_out.is_(None),
+            )
+            .first()
+        )
 
         if not cp:
             raise ValueError("Активная запись о парковке не найдена")
@@ -151,6 +170,8 @@ class CPRepository:
     @classmethod
     def delete_cp_db(cls, cp_id):
         """Удаляет cp из базы данных"""
-        deleted = db.session.query(ClientParking).filter(ClientParking.id == cp_id).delete()
+        deleted = (
+            db.session.query(ClientParking).filter(ClientParking.id == cp_id).delete()
+        )
         db.session.commit()
         return bool(deleted)
