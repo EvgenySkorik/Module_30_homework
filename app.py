@@ -1,11 +1,12 @@
-from flask_openapi3 import OpenAPI, Info
+from flask_openapi3 import Info, OpenAPI
+
 from database import db
 
 
 def create_app():
     info = Info(title="homework_29_TugoseryAPI", version="1.0.0")
     app = OpenAPI(__name__, info=info, doc_prefix="/api/docs")
-    app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///tugosery.db'
+    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///tugosery.db"
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
     db.init_app(app)
@@ -15,10 +16,12 @@ def create_app():
         db.session.remove()
 
     with app.app_context():
-        from models import Client, Parking, ClientParking
+        from models import Client, ClientParking, Parking
+
         db.create_all()
 
-    from routes import clients_bp, parkings_bp, index_bp, cp_bp
+    from routes import clients_bp, cp_bp, index_bp, parkings_bp
+
     app.register_api(index_bp)
     app.register_api(clients_bp)
     app.register_api(parkings_bp)
@@ -27,6 +30,6 @@ def create_app():
     return app
 
 
-if __name__ ==  "__main__":
+if __name__ == "__main__":
     app = create_app()
     app.run(debug=True)

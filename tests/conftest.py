@@ -1,6 +1,7 @@
-import pytest
-import sys
 import os
+import sys
+
+import pytest
 
 hw_path = os.path.dirname(os.path.dirname(__file__))
 sys.path.insert(0, hw_path)
@@ -21,13 +22,14 @@ def app():
         cl1 = Client(
             name="Алесандр",
             surname="Македонский",
-            credit_card='4514 5585 3012 4411',
-            car_number='В777ОР77')
+            credit_card="4514 5585 3012 4411",
+            car_number="В777ОР77",
+        )
         park = Parking(
             address="г. Москва, ул. Тверская, 11с2",
             opened=True,
             count_places=10,
-            count_available_places=10
+            count_available_places=10,
         )
         _db.session.add(cl1)
         _db.session.add(park)
@@ -36,6 +38,7 @@ def app():
         yield _app
         _db.session.close()
         _db.drop_all()
+
 
 @pytest.fixture
 def client(app):
@@ -47,7 +50,3 @@ def client(app):
 def db(app):
     with app.app_context():
         yield _db
-
-
-
-

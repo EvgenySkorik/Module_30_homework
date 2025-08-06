@@ -1,5 +1,6 @@
-from shemas import ClientShema
 from models import Client, Parking
+from shemas import ClientShema
+
 from ..tests.client_factory import ClientFactory, ParkingFactory
 
 
@@ -12,7 +13,7 @@ def test_create_client(client, db):
     assert resp.status_code == 201
     assert "Добавлен клиент:" in resp.json
     assert db.session.query(Client).count() == initial_count + 1
-    assert 'id' in resp.json["Добавлен клиент:"]
+    assert "id" in resp.json["Добавлен клиент:"]
 
 
 # def test_create_client_many(client, db):
@@ -36,4 +37,4 @@ def test_create_parking(client, db):
     assert resp.status_code == 201
     assert "Добавлена парковочная зона:" in resp.json
     assert db.session.query(Parking).count() == initial_count + 1
-    assert 'id' in resp.json["Добавлена парковочная зона:"]
+    assert "id" in resp.json["Добавлена парковочная зона:"]
