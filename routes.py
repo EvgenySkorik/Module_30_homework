@@ -2,12 +2,10 @@ from typing import List
 
 from flask_openapi3 import APIBlueprint, Tag
 
-from models import Client
 from repository import ClientRepository, CPRepository, ParkingRepository
 from shemas import (
     ClientIdShema,
     ClientShema,
-    ClientShemaOUT,
     CPShema,
     CPShemaDel,
     ParkingShema,
@@ -34,8 +32,7 @@ def main():
 @clients_bp.get("/", summary="Список всех клиентов", tags=[cli_tag])
 def get_clients() -> List[dict]:
     """Получение списка клиентов"""
-    clients = ClientRepository.get_all_clients_db()
-    return clients
+    return ClientRepository.get_all_clients_db()
 
 
 @clients_bp.post("/", summary="Добавить клиента", tags=[cli_tag])
