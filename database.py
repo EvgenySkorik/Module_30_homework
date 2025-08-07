@@ -1,9 +1,9 @@
 from flask_sqlalchemy import SQLAlchemy
 
-db = SQLAlchemy()
+db: SQLAlchemy = SQLAlchemy()
 
 
-class Base(db.Model):
+class Base(db.Model): # type: ignore[name-defined]
     __abstract__ = True
 
     def to_json(self):
