@@ -15,7 +15,7 @@ def create_app():
     def shutdown_session(exception=None):
         db.session.remove()
 
-    from src.models import Client, Parking, ClientParking   # noqa: E402
+    from src.models import Client, ClientParking, Parking  # noqa: E402, F401
 
     with app.app_context():
         db.create_all()
