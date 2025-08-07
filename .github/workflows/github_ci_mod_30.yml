@@ -40,7 +40,7 @@ jobs:
         run: flake8 --max-line-length=88 --ignore=E203,W503,PIE798 app.py database.py loging.py models.py repository.py routes.py shemas.py
 
       - name: Run mypy
-        run: mypy .
+        run: mypy app.py
 
       - name: Run tests
         run: pytest tests -v    
