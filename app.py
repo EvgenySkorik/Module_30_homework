@@ -16,7 +16,6 @@ def create_app():
         db.session.remove()
 
     with app.app_context():
-
         db.create_all()
 
     from routes import clients_bp, cp_bp, index_bp, parkings_bp

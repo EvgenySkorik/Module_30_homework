@@ -66,9 +66,7 @@ class ParkingRepository:
         """Проверка наличия парковочной зоны в базе"""
         return (
             db.session.query(Parking)
-            .filter(
-                Parking.address == data_client.address,
-            )
+            .filter(Parking.address == data_client.address)
             .first()
             is not None
         )

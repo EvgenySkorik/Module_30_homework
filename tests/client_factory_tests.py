@@ -1,5 +1,4 @@
 from models import Client, Parking
-from shemas import ClientShema
 
 from ..tests.client_factory import ClientFactory, ParkingFactory
 
