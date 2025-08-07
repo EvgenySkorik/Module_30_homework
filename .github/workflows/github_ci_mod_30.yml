@@ -23,7 +23,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.10"
+          python-version: "3.12.3"
 
       - name: Install dependencies
         run: |
@@ -33,14 +33,18 @@ jobs:
 
       - name: Run formatting checks
         run: |
-          isort --check .
-          black --check .
+          isort --check src/ tests/ app.py
+          black --check src/ tests/ app.py
 
       - name: Run flake8
-        run: flake8 --max-line-length=88 --ignore=E203,W503,PIE798 app.py database.py loging.py models.py repository.py routes.py shemas.py
+        run: flake8 --max-line-length=88 --ignore=E203,W503,PIE798 app.py /src
 
-      # - name: Run mypy
-      #   run: mypy app.py
+      - name: Run mypy
+        run: |
+          mypy --ignore-missing-imports \
+               --disallow-untyped-defs \
+               src/ tests/ app.py
 
       - name: Run tests
-        run: pytest tests -v    
+        run: |
+          pytest tests/ -v    

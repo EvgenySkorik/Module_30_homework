@@ -1,7 +1,7 @@
 import logging
 from pathlib import Path
 
-LOG_DIR = Path(__file__).resolve().parent.parent / "hw/logs"
+LOG_DIR = Path(__file__).resolve().parent.parent / "logs"
 LOG_FILE_NAME = "log.log"
 
 LOG_DIR.mkdir(parents=True, exist_ok=True)

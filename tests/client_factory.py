@@ -1,8 +1,8 @@
 import factory
 from faker import Faker
 
-from database import db
-from models import Client, Parking
+from src.database import db
+from src.models import Client, Parking
 
 fake = Faker()
 

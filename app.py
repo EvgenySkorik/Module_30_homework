@@ -1,6 +1,6 @@
 from flask_openapi3 import Info, OpenAPI
 
-from database import db
+from src.database import db
 
 
 def create_app():
@@ -15,10 +15,12 @@ def create_app():
     def shutdown_session(exception=None):
         db.session.remove()
 
+    from src.models import Client, Parking, ClientParking   # noqa: E402
+
     with app.app_context():
         db.create_all()
 
-    from routes import clients_bp, cp_bp, index_bp, parkings_bp
+    from src.routes import clients_bp, cp_bp, index_bp, parkings_bp
 
     app.register_api(index_bp)
     app.register_api(clients_bp)

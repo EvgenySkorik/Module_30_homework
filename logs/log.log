@@ -1,0 +1,32 @@
+2025-08-07 22:10:36,369 [werkzeug] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-08-07 22:10:36,370 [werkzeug] [INFO] [33mPress CTRL+C to quit[0m
+2025-08-07 22:10:36,374 [werkzeug] [INFO]  * Restarting with stat
+2025-08-07 22:10:37,240 [werkzeug] [WARNING]  * Debugger is active!
+2025-08-07 22:10:37,475 [werkzeug] [INFO]  * Debugger PIN: 903-432-424
+2025-08-07 22:10:54,619 [werkzeug] [INFO] 127.0.0.1 - - [07/Aug/2025 22:10:54] "[32mGET /api/docs HTTP/1.1[0m" 308 -
+2025-08-07 22:10:54,631 [werkzeug] [INFO] 127.0.0.1 - - [07/Aug/2025 22:10:54] "GET /api/docs/ HTTP/1.1" 200 -
+2025-08-07 22:10:54,896 [werkzeug] [INFO] 127.0.0.1 - - [07/Aug/2025 22:10:54] "GET /api/docs/rapipdf/images/rapipdf.svg HTTP/1.1" 200 -
+2025-08-07 22:10:55,016 [werkzeug] [INFO] 127.0.0.1 - - [07/Aug/2025 22:10:55] "GET /api/docs/redoc/images/redoc.svg HTTP/1.1" 200 -
+2025-08-07 22:10:55,033 [werkzeug] [INFO] 127.0.0.1 - - [07/Aug/2025 22:10:55] "GET /api/docs/scalar/images/scalar.svg HTTP/1.1" 200 -
+2025-08-07 22:10:55,042 [werkzeug] [INFO] 127.0.0.1 - - [07/Aug/2025 22:10:55] "GET /api/docs/rapidoc/images/rapidoc.svg HTTP/1.1" 200 -
+2025-08-07 22:10:55,046 [werkzeug] [INFO] 127.0.0.1 - - [07/Aug/2025 22:10:55] "GET /api/docs/swagger/images/swagger.svg HTTP/1.1" 200 -
+2025-08-07 22:10:55,047 [werkzeug] [INFO] 127.0.0.1 - - [07/Aug/2025 22:10:55] "GET /api/docs/elements/images/elements.svg HTTP/1.1" 200 -
+2025-08-07 22:11:08,472 [werkzeug] [INFO] 127.0.0.1 - - [07/Aug/2025 22:11:08] "GET /api/docs/swagger HTTP/1.1" 200 -
+2025-08-07 22:11:08,508 [werkzeug] [INFO] 127.0.0.1 - - [07/Aug/2025 22:11:08] "GET /api/docs/swagger/css/swagger-ui.css HTTP/1.1" 200 -
+2025-08-07 22:11:08,728 [werkzeug] [INFO] 127.0.0.1 - - [07/Aug/2025 22:11:08] "GET /api/docs/swagger/js/swagger-ui-bundle.js HTTP/1.1" 200 -
+2025-08-07 22:11:08,830 [werkzeug] [INFO] 127.0.0.1 - - [07/Aug/2025 22:11:08] "GET /api/docs/swagger/js/swagger-ui-standalone-preset.js HTTP/1.1" 200 -
+2025-08-07 22:11:09,276 [werkzeug] [INFO] 127.0.0.1 - - [07/Aug/2025 22:11:09] "GET /api/docs/openapi.json HTTP/1.1" 200 -
+2025-08-07 22:11:17,567 [werkzeug] [INFO] 127.0.0.1 - - [07/Aug/2025 22:11:17] "[35m[1mPOST /api/clients/ HTTP/1.1[0m" 500 -
+2025-08-07 22:12:06,815 [werkzeug] [INFO] 127.0.0.1 - - [07/Aug/2025 22:12:06] "[35m[1mPOST /api/clients/ HTTP/1.1[0m" 500 -
+2025-08-07 22:13:54,143 [werkzeug] [INFO] 127.0.0.1 - - [07/Aug/2025 22:13:54] "[35m[1mGET /api/clients/ HTTP/1.1[0m" 500 -
+2025-08-07 22:15:35,052 [werkzeug] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-08-07 22:15:35,053 [werkzeug] [INFO] [33mPress CTRL+C to quit[0m
+2025-08-07 22:15:35,053 [werkzeug] [INFO]  * Restarting with stat
+2025-08-07 22:15:35,766 [werkzeug] [WARNING]  * Debugger is active!
+2025-08-07 22:15:35,943 [werkzeug] [INFO]  * Debugger PIN: 903-432-424
+2025-08-07 22:15:54,420 [werkzeug] [INFO] 127.0.0.1 - - [07/Aug/2025 22:15:54] "GET /api/clients/ HTTP/1.1" 200 -
+2025-08-07 22:15:59,566 [werkzeug] [INFO] 127.0.0.1 - - [07/Aug/2025 22:15:59] "[35m[1mPOST /api/clients/ HTTP/1.1[0m" 201 -
+2025-08-07 22:16:00,739 [werkzeug] [INFO] 127.0.0.1 - - [07/Aug/2025 22:16:00] "[31m[1mPOST /api/clients/ HTTP/1.1[0m" 409 -
+2025-08-07 22:16:02,994 [werkzeug] [INFO] 127.0.0.1 - - [07/Aug/2025 22:16:02] "GET /api/clients/ HTTP/1.1" 200 -

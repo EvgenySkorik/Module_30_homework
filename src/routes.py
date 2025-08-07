@@ -2,8 +2,8 @@ from typing import List
 
 from flask_openapi3 import APIBlueprint, Tag
 
-from repository import ClientRepository, CPRepository, ParkingRepository
-from shemas import ClientIdShema, ClientShema, CPShema, CPShemaDel, ParkingShema
+from src.repository import ClientRepository, CPRepository, ParkingRepository
+from src.shemas import ClientIdShema, ClientShema, CPShema, CPShemaDel, ParkingShema
 
 index_bp = APIBlueprint("index", __name__)
 clients_bp = APIBlueprint("clients", __name__, url_prefix="/api/clients")

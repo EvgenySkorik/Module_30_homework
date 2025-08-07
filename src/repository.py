@@ -1,10 +1,10 @@
 from datetime import datetime
 from typing import List
 
-from database import db
-from loging import get_logger
-from models import Client, ClientParking, Parking
-from shemas import ClientShema, ClientShemaOUT, CPShema, ParkingShema, ParkingShemaOUT
+from src.database import db
+from src.loging import get_logger
+from src.models import Client, ClientParking, Parking
+from src.shemas import ClientShema, ClientShemaOUT, CPShema, ParkingShema, ParkingShemaOUT
 
 rep_logger = get_logger()
 

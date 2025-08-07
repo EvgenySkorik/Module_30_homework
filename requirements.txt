@@ -43,7 +43,8 @@ pycodestyle==2.14.0
 pydantic==2.11.7
 pydantic_core==2.33.2
 pyflakes==3.4.0
-pytest==7.0.1
+Pygments==2.19.2
+pytest==8.4.1
 SQLAlchemy==2.0.42
 tomli==2.2.1
 typing-inspection==0.4.1

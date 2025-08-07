@@ -3,12 +3,12 @@ import sys
 
 import pytest
 
-from app import create_app
-from database import db as _db
-from models import Client, Parking
+hw_path = os.path.dirname(os.path.dirname(__file__))  # noqa: E402
+sys.path.insert(0, hw_path)  # noqa: E402
 
-hw_path = os.path.dirname(os.path.dirname(__file__))
-sys.path.insert(0, hw_path)
+from app import create_app  # noqa: E402
+from src.database import db as _db  # noqa: E402
+from src.models import Client, Parking  # noqa: E402
 
 
 @pytest.fixture
