@@ -89,7 +89,7 @@ class CPRepository:
     @classmethod
     def client_in_to_parking_db(cls, cp_data: CPShema):
         parking: Parking = (
-            db.session.query(Parking) # type: ignore[assignment]
+            db.session.query(Parking)  # type: ignore[assignment]
             .filter(Parking.id == cp_data.parking_id)
             .one_or_none()
         )
