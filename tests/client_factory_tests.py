@@ -1,5 +1,4 @@
 from src.models import Client, Parking
-
 from tests.client_factory import ClientFactory, ParkingFactory
 
 
