@@ -43,7 +43,6 @@ jobs:
           flask-openapi3 \
           factory_boy \
           types-sqlalchemy \
-          types-Faker \
           sqlalchemy2-stubs
 
       - name: Run formatting checks
