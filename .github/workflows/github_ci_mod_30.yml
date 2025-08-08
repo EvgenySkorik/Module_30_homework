@@ -27,7 +27,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
           pip install types-pydantic types-sqlalchemy types-Faker
           python -m pip install --upgrade pip
           pip install --upgrade \
