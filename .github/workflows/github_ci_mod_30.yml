@@ -42,6 +42,8 @@ jobs:
           faker \
           flask-openapi3 \
           factory_boy \
+          flask-sqlalchemy \
+          Flask==3.1.1 \
 
 
       - name: Run formatting checks
