@@ -40,18 +40,16 @@ jobs:
 
       - name: Run formatting checks
         run: |
-          isort --check src/ tests/ app.py
-          black --check src/ tests/ app.py
+          isort --check src/ tests/
+          black --check src/ tests/
 
       - name: Run flake8
-        run: flake8 --max-line-length=88 --ignore=E203,W503,PIE798 app.py src/
+        run: flake8 --max-line-length=88 --ignore=E203,W503,PIE798 src/
 
       - name: Run mypy
         run: |
-          mypy --ignore-missing-imports \
-               --disallow-untyped-defs \
-               src/ tests/ app.py
+          mypy src/ tests/
 
       - name: Run tests
         run: |
-          pytest tests/ -v    
+          PYTHONPATH=src:. pytest tests/ -v

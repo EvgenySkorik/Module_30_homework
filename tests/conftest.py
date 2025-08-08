@@ -1,7 +1,6 @@
 import pytest
 
-
-from app import create_app  # noqa: E402
+from src.app import create_app  # noqa: E402
 from src.database import db as _db  # noqa: E402
 from src.models import Client, Parking  # noqa: E402
 
