@@ -1,5 +1,6 @@
 import logging
 from pathlib import Path
+from typing import Optional
 
 LOG_DIR = Path(__file__).resolve().parent.parent / "logs"
 LOG_FILE_NAME = "log.log"
@@ -16,7 +17,7 @@ logging.basicConfig(
 )
 
 
-def get_logger(name=None):
+def get_logger(name: Optional[str] = None) -> logging.Logger:
     """Возвращает настроенный логгер"""
 
     return logging.getLogger(name or __name__)

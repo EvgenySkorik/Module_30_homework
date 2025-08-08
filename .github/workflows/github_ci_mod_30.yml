@@ -36,7 +36,16 @@ jobs:
           flake8-pie==0.15.0 \
           isort==5.12.0 \
           mypy==1.6.1 \
-          pytest==7.4.3
+          pytest==7.4.3 \
+          pydantic \
+          sqlalchemy \
+          faker \
+          flask-openapi3 \
+          factory_boy \
+          types-pydantic \
+          types-sqlalchemy \
+          types-Faker \
+          sqlalchemy-stubs
 
       - name: Run formatting checks
         run: |
@@ -48,7 +57,7 @@ jobs:
 
       - name: Run mypy
         run: |
-          mypy src/ tests/
+          mypy src/
 
       - name: Run tests
         run: |

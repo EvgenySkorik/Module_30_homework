@@ -1,9 +1,11 @@
+from typing import Optional
+
 from flask_openapi3 import Info, OpenAPI
 
 from src.database import db
 
 
-def create_app():
+def create_app() -> OpenAPI:
     info = Info(title="homework_29_TugoseryAPI", version="1.0.0")
     app = OpenAPI(__name__, info=info, doc_prefix="/api/docs")
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///tugosery.db"
@@ -12,7 +14,7 @@ def create_app():
     db.init_app(app)
 
     @app.teardown_appcontext
-    def shutdown_session(exception=None):
+    def shutdown_session(exception: Optional[BaseException] = None) -> None:
         db.session.remove()
 
     from src.models import Client, ClientParking, Parking  # noqa: E402, F401

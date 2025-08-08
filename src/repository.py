@@ -53,14 +53,14 @@ class ClientRepository:
         return [cl.to_json() for cl in clients]
 
     @classmethod
-    def delete_client_db(cls, client_id):
+    def delete_client_db(cls, client_id: int) -> bool:
         """Удаляет клиента из базы данных"""
         deleted = db.session.query(Client).filter(Client.id == client_id).delete()
         db.session.commit()
         return bool(deleted)
 
     @classmethod
-    def get_client_by_id_db(cls, client_id):
+    def get_client_by_id_db(cls, client_id: int) -> Client | None:
         """Получить из БД инфо по клиенту"""
         client = db.session.query(Client).filter(Client.id == client_id).one_or_none()
         return client.to_json() if client else None
@@ -93,7 +93,7 @@ class ParkingRepository:
 
 class CPRepository:
     @classmethod
-    def client_in_to_parking_db(cls, cp_data: CPShema):
+    def client_in_to_parking_db(cls, cp_data: CPShema) -> ClientParking:
         parking: Parking = (
             db.session.query(Parking)  # type: ignore[assignment]
             .filter(Parking.id == cp_data.parking_id)
@@ -133,7 +133,7 @@ class CPRepository:
         return cp
 
     @classmethod
-    def client_out_of_parking_db(cls, cp_data: CPShema):
+    def client_out_of_parking_db(cls, cp_data: CPShema) -> tuple[ClientParking, int]:
         """
         Получаем данные из базы по client_parking, parking, client,
         Обновляем запись при выезде из парковки в БД,
@@ -172,7 +172,7 @@ class CPRepository:
         return client_parking, client_parking.time_out - client_parking.time_in
 
     @classmethod
-    def delete_cp_db(cls, cp_id):
+    def delete_cp_db(cls, cp_id: int) -> bool:
         """Удаляет cp из базы данных"""
         deleted = (
             db.session.query(ClientParking).filter(ClientParking.id == cp_id).delete()

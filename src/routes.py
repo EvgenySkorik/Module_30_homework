@@ -16,7 +16,7 @@ cp_tag = Tag(name="Действия 🚗", description="Ручки с дейст
 
 
 @index_bp.get("/", summary="Стартовая")
-def main():
+def main() -> str:
     return "Привет, это паркинг!"
 
 
@@ -30,7 +30,7 @@ def get_clients() -> List[dict]:
 
 
 @clients_bp.post("/", summary="Добавить клиента", tags=[cli_tag])
-def add_client(body: ClientShema):
+def add_client(body: ClientShema) -> tuple[dict[str, str], int]:
     """Создание клиента"""
     try:
         new_client = ClientRepository.add_client_db(body)
@@ -40,7 +40,7 @@ def add_client(body: ClientShema):
 
 
 @clients_bp.delete("/<int:client_id>", summary="Удалить клиента", tags=[cli_tag])
-def delete_client(path: ClientIdShema):
+def delete_client(path: ClientIdShema) -> tuple[dict[str, str], int]:
     """Удаление клиента"""
     client_id = ClientRepository.delete_client_db(path.client_id)
     if client_id:
@@ -50,7 +50,7 @@ def delete_client(path: ClientIdShema):
 
 
 @clients_bp.get("/<int:client_id>", summary="Информация клиента по ID", tags=[cli_tag])
-def get_client_by_id(path: ClientIdShema):
+def get_client_by_id(path: ClientIdShema) -> tuple[dict[str, str], int]:
     """Информация клиента по ID"""
     client = ClientRepository.get_client_by_id_db(path.client_id)
     if client:
@@ -59,7 +59,7 @@ def get_client_by_id(path: ClientIdShema):
 
 
 @parkings_bp.post("/", summary="Добавить парковку", tags=[park_tag])
-def add_parking(body: ParkingShema):
+def add_parking(body: ParkingShema) -> tuple[dict[str, str], int]:
     """Создание парковочной зоны"""
     try:
         new_parking = ParkingRepository.add_parking_db(body)
@@ -69,7 +69,7 @@ def add_parking(body: ParkingShema):
 
 
 @cp_bp.post("/to/", summary="Заезд на парковку", tags=[cp_tag])
-def add_cl_to_park(body: CPShema):
+def add_cl_to_park(body: CPShema) -> tuple[dict[str, str], int]:
     """Роут добавления записи при въезде"""
     try:
         new_cp = CPRepository.client_in_to_parking_db(body)
@@ -79,7 +79,7 @@ def add_cl_to_park(body: CPShema):
 
 
 @cp_bp.put("/out/", summary="Выезд с парковки", tags=[cp_tag])
-def add_cl_out_park(body: CPShema):
+def add_cl_out_park(body: CPShema) -> tuple[dict[str, str], int]:
     """Роут обновления записи при выезде"""
     try:
         new_cp = CPRepository.client_out_of_parking_db(body)
@@ -89,7 +89,7 @@ def add_cl_out_park(body: CPShema):
 
 
 @cp_bp.delete("/<int:id>", summary="Удаление записи из client_parking", tags=[cp_tag])
-def delete_cp(path: CPShemaDel):
+def delete_cp(path: CPShemaDel) -> tuple[dict[str, str], int]:
     """Удаление записи из client_parking"""
     cp_id = CPRepository.delete_cp_db(path.id)
     if cp_id:

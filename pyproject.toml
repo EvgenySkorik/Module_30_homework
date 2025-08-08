@@ -33,9 +33,14 @@ testpaths = ["tests"]
 [tool.mypy]
 pythonpath = "src"
 namespace_packages = true
-ignore_missing_imports = true
-disallow_untyped_defs = true
 files = ["src/"]
+disable_error_code = "misc"
+
+ignore_missing_imports = false
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+warn_return_any = true
+warn_unused_configs = true
 
 [mypy-pydantic.'*']
 ignore_missing_imports = true
