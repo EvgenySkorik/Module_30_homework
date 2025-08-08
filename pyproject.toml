@@ -31,7 +31,7 @@ pythonpath = ["src", "."]
 testpaths = ["tests"]
 
 [tool.mypy]
-pythonpath = "src"
+mypy_path = "src"
 namespace_packages = true
 files = ["src/"]
 disable_error_code = "misc"

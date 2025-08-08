@@ -60,3 +60,21 @@
 2025-08-08 18:47:49,554 [werkzeug] [INFO] 127.0.0.1 - - [08/Aug/2025 18:47:49] "[35m[1mPOST /api/clients/ HTTP/1.1[0m" 201 -
 2025-08-08 18:47:53,569 [werkzeug] [INFO] 127.0.0.1 - - [08/Aug/2025 18:47:53] "GET /api/clients/ HTTP/1.1" 200 -
 2025-08-08 18:47:54,597 [werkzeug] [INFO] 127.0.0.1 - - [08/Aug/2025 18:47:54] "GET /api/clients/ HTTP/1.1" 200 -
+2025-08-08 22:00:22,551 [werkzeug] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-08-08 22:00:22,552 [werkzeug] [INFO] [33mPress CTRL+C to quit[0m
+2025-08-08 22:00:22,553 [werkzeug] [INFO]  * Restarting with stat
+2025-08-08 22:00:23,342 [werkzeug] [WARNING]  * Debugger is active!
+2025-08-08 22:00:23,572 [werkzeug] [INFO]  * Debugger PIN: 247-600-518
+2025-08-08 22:00:30,783 [werkzeug] [INFO] 127.0.0.1 - - [08/Aug/2025 22:00:30] "GET /api/docs/swagger HTTP/1.1" 200 -
+2025-08-08 22:00:30,846 [werkzeug] [INFO] 127.0.0.1 - - [08/Aug/2025 22:00:30] "[36mGET /api/docs/swagger/css/swagger-ui.css HTTP/1.1[0m" 304 -
+2025-08-08 22:00:31,028 [werkzeug] [INFO] 127.0.0.1 - - [08/Aug/2025 22:00:31] "[36mGET /api/docs/swagger/js/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2025-08-08 22:00:31,146 [werkzeug] [INFO] 127.0.0.1 - - [08/Aug/2025 22:00:31] "[36mGET /api/docs/swagger/js/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2025-08-08 22:00:31,618 [werkzeug] [INFO] 127.0.0.1 - - [08/Aug/2025 22:00:31] "GET /api/docs/openapi.json HTTP/1.1" 200 -
+2025-08-08 22:00:31,619 [werkzeug] [INFO] 127.0.0.1 - - [08/Aug/2025 22:00:31] "[36mGET /api/docs/swagger/images/swagger.svg HTTP/1.1[0m" 304 -
+2025-08-08 22:00:34,101 [werkzeug] [INFO] 127.0.0.1 - - [08/Aug/2025 22:00:34] "GET /api/clients/ HTTP/1.1" 200 -
+2025-08-08 22:00:41,675 [werkzeug] [INFO] 127.0.0.1 - - [08/Aug/2025 22:00:41] "[35m[1mPOST /api/clients/ HTTP/1.1[0m" 201 -
+2025-08-08 22:00:46,176 [werkzeug] [INFO] 127.0.0.1 - - [08/Aug/2025 22:00:46] "GET /api/clients/ HTTP/1.1" 200 -
+2025-08-08 22:00:54,922 [werkzeug] [INFO] 127.0.0.1 - - [08/Aug/2025 22:00:54] "[35m[1mPOST /api/parkings/ HTTP/1.1[0m" 201 -
+2025-08-08 22:01:12,975 [werkzeug] [INFO] 127.0.0.1 - - [08/Aug/2025 22:01:12] "GET /api/clients/ HTTP/1.1" 200 -
+2025-08-08 22:01:14,052 [werkzeug] [INFO] 127.0.0.1 - - [08/Aug/2025 22:01:14] "GET /api/clients/ HTTP/1.1" 200 -
