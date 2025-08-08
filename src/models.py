@@ -1,4 +1,5 @@
 from datetime import datetime
+from typing import List
 
 from sqlalchemy import ForeignKey, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
@@ -14,7 +15,7 @@ class Client(Base):
     credit_card: Mapped[str | None] = mapped_column(String(50))
     car_number: Mapped[str | None] = mapped_column(String(10))
 
-    parkings = relationship(
+    parkings: Mapped[List["ClientParking"]] = relationship(
         "ClientParking",
         back_populates="client",
         cascade="all, delete-orphan",
@@ -30,7 +31,7 @@ class Parking(Base):
     count_places: Mapped[int] = mapped_column(nullable=False)
     count_available_places: Mapped[int] = mapped_column(nullable=False)
 
-    clients = relationship(
+    clients: Mapped[List["ClientParking"]] = relationship(
         "ClientParking",
         back_populates="parking",
         cascade="all, delete-orphan",
@@ -48,8 +49,8 @@ class ClientParking(Base):
     time_in: Mapped[datetime] = mapped_column(nullable=True)
     time_out: Mapped[datetime] = mapped_column(nullable=True)
 
-    client = relationship("Client", back_populates="parkings")
-    parking = relationship("Parking", back_populates="clients")
+    client: Mapped["Client"] = relationship("Client", back_populates="parkings")
+    parking: Mapped["Parking"] = relationship("Parking", back_populates="clients")
 
     __table_args__ = (
         db.UniqueConstraint("client_id", "parking_id", name="unique_client_parking"),

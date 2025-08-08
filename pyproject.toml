@@ -46,7 +46,7 @@ warn_unused_configs = true
 ignore_missing_imports = true
 
 [mypy-sqlalchemy.'*']
-ignore_missing_imports = true
+ignore_missing_imports = false
 
 [mypy-faker.'*']
 ignore_missing_imports = true
