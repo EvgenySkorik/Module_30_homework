@@ -37,3 +37,17 @@ ignore_missing_imports = true
 disallow_untyped_defs = true
 files = ["src/"]
 
+[mypy-pydantic.'*']
+ignore_missing_imports = true
+
+[mypy-sqlalchemy.'*']
+ignore_missing_imports = true
+
+[mypy-faker.'*']
+ignore_missing_imports = true
+
+[mypy-flask_openapi3.'*']
+ignore_missing_imports = true
+
+[mypy-factory.'*']
+ignore_missing_imports = true
