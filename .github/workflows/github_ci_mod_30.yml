@@ -42,10 +42,9 @@ jobs:
           faker \
           flask-openapi3 \
           factory_boy \
-          types-pydantic \
           types-sqlalchemy \
           types-Faker \
-          sqlalchemy-stubs
+          sqlalchemy2-stubs
 
       - name: Run formatting checks
         run: |
